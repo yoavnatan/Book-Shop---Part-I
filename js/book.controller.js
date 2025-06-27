@@ -34,7 +34,8 @@ function render() {
         elBooksCard.innerHTML = strHTML.join('')
         return
     }
-    showElement('.table-container')
+
+    // showElement('.table-container')
     const elBooksTable = document.querySelector('.table-container tbody')
     const books = getBooks(gFilterBy)
 
@@ -43,7 +44,6 @@ function render() {
         _renderstats()
         return
     }
-
 
     var strHTML = books.map(book => `
             <tr>
@@ -55,8 +55,9 @@ function render() {
                 </td>
             </tr>`)
     elBooksTable.innerHTML = strHTML.join('')
+    document.querySelector('.cards-container').style.display = 'none'
 
-
+    showElement('.table-container')
 
     _renderstats()
 }
@@ -155,7 +156,6 @@ function onCardsView() {
 function onTableView() {
 
     gLayout = 'table'
-    showElement('.table-container')
     document.querySelector('.cards-container').style.display = 'none'
     render()
     saveToStorage('viewKey', 'table')
@@ -189,7 +189,7 @@ function onSubmit() {
     const bookTitle = document.getElementById('booktitle').value
     const bookprice = document.getElementById('bookprice').value
     const imgUrl = document.getElementById('bookimage').value
-    addBook(bookTitle, bookprice)
+    addBook(bookTitle, bookprice, imgUrl)
     render()
 
 }

@@ -34,9 +34,9 @@ function updatePrice(bookId, newPrice) {
     return book
 }
 
-function addBook(title, price) {
+function addBook(title, price, img) {
 
-    const newBook = _createBook(title, price)
+    const newBook = _createBook(title, price, img)
     gBooks.push(newBook)
 
     _saveBooks()
@@ -78,8 +78,8 @@ function updateRating(bookId, diff) {
     return book
 }
 
-function addBookByModal(title, price) {
-    addBook(title, price)
+function addBookByModal(title, price, img) {
+    addBook(title, price, img)
     _saveBooks
 
 }
